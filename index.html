@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    }
+    #principal{
+        margin-top: 10%;
+        background-color: rgb(251, 255, 0);
+        box-shadow: 0 0 8px 1px #daa105, 4px 4px 8px 1px #2e2e30;
+        width: 40%;
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        border-radius: 35px;
+        align-items: center;
+    }
+    .number1, .number2{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2%;
+        
+    }
+    #num1, #num2{
+        width: 45%;
+        height: 30px;
+        border-radius: 10px;
+        margin-top: 3px;
+        text-align: center;
+        font-weight: bold;
+        
+    }
+    .botao{
+        
+        width: 90%;
+    }
+
+    button{
+        width: 15%;
+        height: 45px;
+        border-radius: 10px;
+        margin-top: 15px;
+        font-weight: bold;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        font-size: 30px;
+    }
+
+    button:hover, button:active{
+        color: yellow;
+        background-color: rgb(27, 4, 155);
+    }
+    .resultado{
+    
+        width: 90%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;        
+    }
+    h2{
+        margin-bottom: -6px;
+    }
+    #result{
+       
+        background-color: rgb(252, 251, 251);
+        width:75%;
+        height: 50px;
+        border-radius: 15px;
+        border: solid black 3px;
+        font-weight: 600;
+        justify-content: center;
+        padding-top: 25px;    
+    }
+
+    @media(max-width: 600px ) {
+#principal{
+    
+    width: 75%;
+}
+h1{
+    font-size: 1.6em;
+}
+    
+}
+
+</style>
+
+</head>
+
+
+<body>
+<div id="principal">
+    <h1>Calculadora Simples</h1>
+
+    <div class="number1">
+        Digite o Primeiro Numero
+    <input type="number" id="num1"/>
+    </div>
+
+    <div class="number2">
+        Digite o Segundo Numero 
+    <input type="number" id="num2"/>
+    </div>
+
+    <div class="botao">
+        <button onclick="calcular('somar')">+</button>
+        <button onclick="calcular('subtrair')">-</button>
+        <button onclick="calcular('dividir')">/</button>
+        <button onclick="calcular('multiplicar')">X</button>
+    </div>
+
+    <div class="resultado">
+        <h2>Resultado:</h2>
+        <p id="result"></p>
+    </div>
+
+
+
+
+</div>
+
+
+<script>
+       
+function calcular(operacao){
+    let num1 = parseInt (document.getElementById('num1').value);
+    let num2 = parseInt (document.getElementById('num2').value);
+   var resultado = document.getElementById('result');
+if(isNaN(num1)|| isNaN(num2)){
+    resultado.textContent = "Você não digitou os numeros"
+}
+else{
+var resul;
+switch(operacao){
+    
+    case'somar':
+    resul = num1 + num2;
+    break;
+
+    case'subtrair':
+    resul =num1 - num2;
+    break;
+
+    case'dividir':
+    resul =num1 / num2;
+    break;
+
+    case'multiplicar':
+    resul =num1 * num2;
+    break;
+
+}
+resultado.textContent = "Resultado: " + resul;
+}
+
+}
+
+</script>
+</body>
+</html>
